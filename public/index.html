@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header__fixed">
+        <div class="header__top wrapper">
+          <div class="header__contacts">
+            <p>Call Us: +1 213 974-5898</p>
+            <p>Email: toystore@template.com</p>
+          </div>
+          <div class="header__links">
+            <a href="#"><img src="../img/twitter.png" alt="twitter"></a>
+            <a href="#"><img src="../img/facebook.png" alt="facebook"></a>
+            <a href="#"><img src="../img/instagram.png" alt="instagram"></a>
+            <a href="#"><img src="../img/pinterest.png" alt="pinterest"></a>
+            <a href="#"><img src="../img/youtube.png" alt="youtube"></a>
+          </div>
+        </div>
+      </div>
+      <div class="header__bottom wrapper">
+        <div class="header__left">
+          <a href="/public" class="header__logo">ToyStore</a>
+          <div class="header__menu">
+            <a href="#">Catalog</a>
+            <a href="#">Delivery</a>
+            <a href="#">About</a>
+            <a href="#">Contacts</a>
+          </div>
+        </div>
+        <div class="header__right">
+          <filter_el></filter_el>
+          <cart ref="cart"></cart>
+        </div>
+      </div>
+    </header>
+
+    <main>
+
+      <div class="inner">
+        <div class="wrapper">
+          <div class="inner__text">
+            <p>Say Hello to ToyStore!</p>
+            <h1>Free Ecommerce <br>Template for Webflow</h1>
+            <a href="#">Open Catalog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog__inner">
+        <div class=" catalog wrapper">
+          <div class="catalog__stuffed">
+            <img src="../img/stuffed.png" alt="stuffed">
+            <div class="catalog__box">
+              <p class="catalog__left">Stuffed Animals</p>
+              <a href="#" class="catalog__left">Shop Now</a>
+            </div>
+          </div>
+          <div class="catalog__wooden">
+            <div class="catalog__box">
+              <p class="catalog__right">Wooden Toys</p>
+              <a href="#" class="catalog__right">Shop Now</a>
+            </div>
+            <img src="../img/wooden.png" alt="wooden">
+          </div>
+        </div>
+      </div>
+
+      <product ref="product"></product>
+
+
+
+      <div class="player__inner">
+        <div class="player wrapper">
+          <video src="video/video.mp4" poster="../img/video.jpg"></video>
+          <input type="range" class="timing" value="0" step="0.001">
+          <div class="player__box">
+            <svg class="fa-play" id="blue_copy" style="enable-background:new 0 0 100 100;" version="1.1"
+              viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Layer_4_copy">
+                <path
+                  d="M31.356,25.677l38.625,22.3c1.557,0.899,1.557,3.147,0,4.046l-38.625,22.3c-1.557,0.899-3.504-0.225-3.504-2.023V27.7   C27.852,25.902,29.798,24.778,31.356,25.677z" />
+                <path
+                  d="M69.981,47.977l-38.625-22.3c-0.233-0.134-0.474-0.21-0.716-0.259l37.341,21.559c1.557,0.899,1.557,3.147,0,4.046   l-38.625,22.3c-0.349,0.201-0.716,0.288-1.078,0.301c0.656,0.938,1.961,1.343,3.078,0.699l38.625-22.3   C71.538,51.124,71.538,48.876,69.981,47.977z" />
+                <path
+                  d="M31.356,25.677l38.625,22.3c1.557,0.899,1.557,3.147,0,4.046   l-38.625,22.3c-1.557,0.899-3.504-0.225-3.504-2.023V27.7C27.852,25.902,29.798,24.778,31.356,25.677z"
+                  style="fill:#A5C926;stroke:#000000;stroke-miterlimit:10;" />
+              </g>
+            </svg>
+            <svg class="fa-pause" id="blue_copy" style="enable-background:new 0 0 100 100;" version="1.1"
+              viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Layer_7_copy">
+                <path
+                  d="M39.806,72.858h-8.915c-2.176,0-3.94-1.764-3.94-3.94V31.119c0-2.176,1.764-3.94,3.94-3.94h8.915   c2.176,0,3.94,1.764,3.94,3.94v37.799C43.746,71.094,41.982,72.858,39.806,72.858z" />
+                <path
+                  d="M68.109,72.821h-8.915c-2.176,0-3.94-1.764-3.94-3.94V31.082c0-2.176,1.764-3.94,3.94-3.94h8.915   c2.176,0,3.94,1.764,3.94,3.94v37.799C72.049,71.057,70.285,72.821,68.109,72.821z" />
+                <path
+                  d="M40.489,27.248c0.769,0.719,1.257,1.735,1.257,2.871v37.799c0,2.176-1.764,3.94-3.94,3.94h-8.915   c-0.234,0-0.46-0.03-0.683-0.069c0.704,0.658,1.643,1.069,2.683,1.069h8.915c2.176,0,3.94-1.764,3.94-3.94V31.119   C43.746,29.177,42.338,27.573,40.489,27.248z" />
+                <path
+                  d="M68.792,27.211c0.769,0.719,1.257,1.735,1.257,2.871v37.799c0,2.176-1.764,3.94-3.94,3.94h-8.915   c-0.234,0-0.46-0.03-0.683-0.069c0.704,0.658,1.643,1.069,2.683,1.069h8.915c2.176,0,3.94-1.764,3.94-3.94V31.082   C72.049,29.14,70.641,27.535,68.792,27.211z" />
+                <path
+                  d="M39.806,72.858h-8.915c-2.176,0-3.94-1.764-3.94-3.94V31.119   c0-2.176,1.764-3.94,3.94-3.94h8.915c2.176,0,3.94,1.764,3.94,3.94v37.799C43.746,71.094,41.982,72.858,39.806,72.858z"
+                  style="fill:#A5C926;stroke:#000000;stroke-miterlimit:10;" />
+                <path
+                  d="M68.109,72.821h-8.915c-2.176,0-3.94-1.764-3.94-3.94V31.082   c0-2.176,1.764-3.94,3.94-3.94h8.915c2.176,0,3.94,1.764,3.94,3.94v37.799C72.049,71.057,70.285,72.821,68.109,72.821z"
+                  style="fill:#A5C926;stroke:#000000;stroke-miterlimit:10;" />
+              </g>
+            </svg>
+
+            <input type="range" class="volume" min="0" max="1" step="0.01" value="0.5">
+            
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="reviews__inner">
+        <div class="wrapper">
+          <div class="reviews">
+            <h4>Made for Webflow</h4>
+            <h2>Simple & Colorful Ecommerce</h2>
+            <h2>Template for Your Business</h2>
+            <div class="reviews__box">
+              <div class="reviews__text">
+                <h3>Available for FREE!</h3>
+                <p>A successful marketing plan relies heavily on the pulling-power of advertising copy. Writing
+                  result-oriented ad copy is difficult, as it must appeal to, entice, and convince consumers to take
+                  action. There is no magic formula to write perfect ad copy</p>
+                <button>GET IT NOW!</button>
+              </div>
+              <div class="reviews__img"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="email__inner">
+        <div class="wrapper">
+          <div class="email">
+            <div class="email__left">
+              <div class="email__img"></div>
+              <div class="email__text">
+                <p>Subscribe to our newsletter</p>
+                <p>& get <span>10% discount!</span></p>
+              </div>
+            </div>
+            <div class="email__right">
+              <input type="text">
+              <button>Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instagram__inner">
+        <div class="wrapper">
+          <div class="instagram">
+            <h4>@ElasticThemes</h4>
+            <h2>We're on Instagram!</h2>
+            <div class="instagram__box">
+              <img src="../img/inst1.jpg" alt="some img">
+              <img src="../img/inst2.jpg" alt="some img">
+              <img src="../img/inst3.jpg" alt="some img">
+              <img src="../img/inst4.jpg" alt="some img">
+              <img src="../img/inst5.jpg" alt="some img">
+              <img src="../img/inst6.jpg" alt="some img">
+            </div>
+            <button>See More Photos</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="footer__inner">
+      <div class="footer wrapper">
+        <div class="footer__top">
+          <a href="/public" class="footer__logo">ToyStore</a>
+          <div class="footer__menu">
+            <a href="#">Home</a>
+            <a href="#">Catalog</a>
+            <a href="#">Delivery</a>
+            <a href="#">About</a>
+            <a href="#">Contacts</a>
+          </div>
+          <div class="footer__links">
+            <a href="#"><img src="../img/twitter.png" alt="some img"></a>
+            <a href="#"><img src="../img/facebook.png" alt="some img"></a>
+            <a href="#"><img src="../img/instagram.png" alt="some img"></a>
+            <a href="#"><img src="../img/pinterest.png" alt="some img"></a>
+            <a href="#"><img src="../img/youtube.png" alt="some img"></a>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p>Created with love by Elastic Themes</p>
+          <div class="footer__text">
+            <ul>
+              <li><a href="#">Powered by Webflow</a></li>
+              <li><a href="#">Style Guide</a></li>
+              <li><a href="#">Licensing</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="js/productComponent.js"></script>
+  <script src="js/cartComponent.js"></script>
+  <script src="js/filterComponent.js"></script>
+
+
+  <script src="js/script.js"></script>
+  <script src="js/video.js"></script>
+</body>
+
+</html>
+
+
+

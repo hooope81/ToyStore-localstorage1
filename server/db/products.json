@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Teddy Bear",
+        "price": "30",
+        "img": "img/1.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Mega Plush Toy",
+        "price": "38",
+        "img": "img/2.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Cute Dog",
+        "price": "24",
+        "img": "img/3.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Little Friend",
+        "price": "27",
+        "img": "img/4.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Happy Flower",
+        "price": "38",
+        "img": "img/5.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Lift Machine",
+        "price": "24",
+        "img": "img/6.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Wooden Camera",
+        "price": "32",
+        "img": "img/7.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Little Rabbit",
+        "price": "16",
+        "img": "img/8.jpg"
+    }
+]
