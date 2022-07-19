@@ -1,17 +1,1 @@
-{"contents":[
-    {
-        "id": 1,
-        "name": "Teddy Bear",
-        "price": "30",
-        "img": "img/1.jpg",
-        "quantity": 1
-    },
-    {
-        "id": 2,
-        "name": "Mega Plush Toy",
-        "price": "38",
-        "img": "img/2.jpg",
-        "quantity": 2
-    }
-]
-}
+{"contents":[{"quantity":1,"id":3,"name":"Cute Dog","price":"24","img":"img/3.jpg"}]}

@@ -167,7 +167,7 @@
 }
 
 .inner {
-  background-image: url("../img/inner.jpg");
+  background-image: url("img/inner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 166px 10px;
@@ -586,7 +586,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .reviews__img {
   width: 45%;
-  background-image: url("../img/reviews.jpg");
+  background-image: url("img/reviews.jpg");
   border-radius: 16px;
   height: 422px;
 }
@@ -620,7 +620,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .email__img {
   width: 63px;
-  background: url("../img/email.png") center #A5C926;
+  background: url("img/email.png") center #A5C926;
   background-repeat: no-repeat;
   margin-right: 22px;
 }
