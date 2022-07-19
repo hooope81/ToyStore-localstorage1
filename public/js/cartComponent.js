@@ -16,40 +16,46 @@ const cart_item = {
 const cart = {
     data(){
         return {
-            cartUrl: 'server/db/userCart.json',
+            cartUrl: '../../server/db/userCart.json',
             cartItems: [],
             showCart: false,
-            count: 3
+            count: 0
         }
     },
     methods: {
         toAddProduct(item) {
             let find = this.cartItems.find(el=> item.id === el.id);
             if(find){
-                this.$parent.putJson(`/api/cart/${find.id}`, {quantity: 1});
-                find.quantity++
-
+                this.$parent.putJson(`/api/putProduct/${find.id}`, {quantity: 1});
+                find.quantity++;
             } else {
                 let prod = Object.assign({quantity:1}, item);
-                this.$parent.postJson(`/api/cart`, prod);
-                this.cartItems.push(prod);
+                this.$parent.postJson(`/api/postProduct`, prod)
+                    .then(data => {
+                    if (data.result === 1) {
+                        this.cartItems.push(prod);
+
+                    }
+                });
             }
             this.count++;
         },
         toRemoveProduct(item) {
-            if(item.quantity>1){
-                item.quantity--;
-            } else {
-                this.cartItems.splice(this.cartItems.indexOf(item), 1);
-            }
+            this.$parent.deleteJson(`/api/deleteProduct/${item.id}`)
+                .then(data => {
+                    if (data.result === 1) {
+                        this.cartItems = data.cartItems.contents
+                        console.log(this.cartItems)
+                    }
+                })
             this.count--;
         }
 
     },
     mounted() {
-        this.$parent.getJson('/api/cart')
+        this.$parent.getJson('/api/getCart')
             .then(data => {
-                for (let item of data) {
+                for (let item of data.contents) {
                     this.cartItems.push(item);
                 }
             })

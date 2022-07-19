@@ -1,32 +1,124 @@
 const express = require('express');
 const fs = require('fs');
 const app = express();
-const cart = require('./cartRouter');//обработчик всех запросов корзины
+
+const PRODUCTS_URL = './server/db/products.json';
+const CART_URL = './server/db/userCart.json';
 
 app.use(express.json());
 app.use('/', express.static('public'));
-app.use('/api/cart', cart);
 
-
-// app.get();
-// app.post();
-// app.put();
-// app.delete();
-
-app.get('/api/products', (req, res) => {
-    fs.readFile('server/db/products.json', 'utf-8', (err, data) => {
+//Products API
+app.get('/api/getProducts', (req, res) => {
+    fs.readFile(PRODUCTS_URL, 'utf-8', (err, data) => {
         if(err){
-            res.sendStatus(404, JSON.stringify({result:0, text: err}));
+            res.send({
+                result: 0,
+                err,
+            });
         } else {
             res.send(data);
         }
     })
 });
 
-// app.get('/api/cart/:id', (req, res) => {
-//    // res.send(req.params.id);
-//     res.send(req.query);
-// });
+//Cart API
+app.get('/api/getCart', (req, res) => {
+    fs.readFile(CART_URL, 'utf-8', (err, data) => {
+        if(err){
+            res.send({
+                result: 0,
+                err,
+            });
+        } else {
+            res.send(data);
+        }
+    })
+});
+app.post('/api/postProduct', (req, res) => {
+    fs.readFile(CART_URL, 'utf-8', (err, data) => {
+        if(err){
+            res.send({
+                result: 0,
+                err,
+            })
+        } else {
+            const cart = JSON.parse(data)
+            cart.contents.push(req.body)
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listen on port ${port}...`));
+            fs.writeFile(CART_URL, JSON.stringify(cart), { encoding: "utf-8" }, (err)=> {
+                if(err){
+                    res.send({
+                        result: 0,
+                        err,
+                    })
+                } else res.send({result: 1})
+            })
+        }
+    })
+});
+
+app.put('/api/putProduct/:id', (req, res) => {
+    fs.readFile(CART_URL, 'utf-8', (err, data) => {
+        if(err){
+            res.send({
+                result: 0,
+                err,
+            })
+        } else {
+            const cart = JSON.parse(data)
+            const change = cart.contents.find(el=> {
+                return el.id === +reg.params.id
+            })
+            change.quantity += req.body.quantity
+
+            fs.writeFile(CART_URL, JSON.stringify(cart), { encoding: "utf-8" }, (err)=> {
+                if(err){
+                    res.send({
+                        result: 0,
+                        err,
+                    })
+                } else res.send({result: 1})
+            })
+        }
+    })
+});
+
+app.delete('/api/deleteProduct/:id', (req, res) => {
+    fs.readFile(CART_URL, 'utf-8', (err, data) => {
+        if(err){
+            res.send({
+                result: 0,
+                err,
+            })
+        } else {
+            const cart = JSON.parse(data);
+            const newContents = [];
+            cart.contents.forEach(item=> {
+                if(item.id === +req.params.id){
+                    if(item.quantity !== 1){
+                        item.quantity--;
+                        newContents.push(item);
+                    }
+                } else newContents.push(item);
+            })
+            cart.contents = newContents;
+
+            fs.writeFile(CART_URL, JSON.stringify(cart), { encoding: "utf-8" }, (err)=> {
+                if(err){
+                    res.send({
+                        result: 0,
+                        err,
+                    })
+                } else res.send({
+                    result: 1,
+                    cartItems: cart
+                })
+            })
+        }
+    })
+});
+
+app.listen(3000, () => {
+    console.log('Server stared!')
+})

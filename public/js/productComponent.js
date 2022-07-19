@@ -17,7 +17,7 @@ const product = {
         }
     },
     mounted() {
-        this.$parent.getJson(this.productsUrl)
+        this.$parent.getJson('/api/getProducts')
             .then(data => {
                 for (let item of data) {
                     this.products.push(item);
